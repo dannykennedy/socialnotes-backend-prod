@@ -35,7 +35,7 @@ module.exports = () => {
         let postText = post.postText;
         let userId = post.userId;
         const noteId = uuidv4();
-        const datetime = new Date().toLocaleString();
+        const datetime = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
         // Add note for userID
         dbNoteFunctions.addNote(userId, postText, noteId, datetime,  function (err, results) {

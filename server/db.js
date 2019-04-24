@@ -6,7 +6,7 @@ let pool = mysql.createPool({
     host: 'remotemysql.com',
     port: '3306',
     user: 'MKwyWiebEa',
-    password: 'ZJ27tpGaIF',
+    password: process.env.MYSQL_PASS,
     database: 'MKwyWiebEa',
     connectionLimit: 10,
     supportBigNumbers: true,

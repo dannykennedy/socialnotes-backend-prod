@@ -21,7 +21,7 @@ exports.getCommentsByNote = (noteID, callback) => {
 exports.addComment = (commentText, userId, postedOn,  callback) => {
 
     const commentId = uuidv4();
-    const datetime = new Date().toLocaleString();
+    const datetime = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const sql = `INSERT INTO Comments( commentId, commentText, postedBy, postedOn) VALUES ('${commentId}', '${commentText}', '${userId}', '${postedOn}')`;
     dbFunctions.makeSqlQuery(sql, callback);
 };

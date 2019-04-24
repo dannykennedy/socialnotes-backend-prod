@@ -47,7 +47,7 @@ exports.addNoteToPersonalGroup = (userId, noteId, datetime, callback) => {
 // IF you are not already in it.
 exports.shareNoteInGroup = (noteId, groupId, userId, callback) => {
 
-    const timeShared = new Date().toLocaleString();
+    const timeShared = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const sql1 = `INSERT INTO NotesGroups VALUES ('${noteId}', '${groupId}', '${timeShared}');`;
     // Join the group as well
     const sql2 = `INSERT INTO UsersGroups VALUES (${userId}, '${groupId}');`;

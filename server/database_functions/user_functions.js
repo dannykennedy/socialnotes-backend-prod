@@ -40,7 +40,7 @@ exports.registerUser = (passwordHash, fName, lName, uName, email, callback) => {
     uName = (uName).toString();
     email = (email).toString();
     const personalGroupId = uuidv4();
-    const datetime = new Date().toLocaleString();
+    const datetime = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
     const sql1 = `INSERT INTO Users (passwordHash, firstName, lastName, userName, email, personalGroup) VALUES ('${passwordHash}', '${fName}', '${lName}', '${uName}', '${email}', '${personalGroupId}');`;
     const sql2 = `INSERT INTO Sharegroups VALUES ('${personalGroupId}', '${uName}', '${datetime}');`;

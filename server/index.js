@@ -23,7 +23,7 @@ app.use(bodyparser.json());
 app.use('/', routes()); //this uses the routes folder
 
 // Listen for requests
-app.listen(port,function(){
+app.listen(process.env.PORT || port,function(){
     console.log('Welcome to SocialNotes!');
     console.log('=======================');
     console.log('Server Started on port ' + port + "...");
